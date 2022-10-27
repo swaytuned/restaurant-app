@@ -1,0 +1,63 @@
+body {
+    margin: 0 auto;
+    width: 600px;
+    height: 1161px;
+    border: 1px pink solid;
+    font-family: 'Smythe', cursive;
+} 
+
+header {
+    height: 167px;
+    border: 1px orange solid;
+    /* margin: 0; */
+    padding: 0;
+    background-color: teal;
+}
+.bg-Img {
+    background-image: url("./images/amirali-mirhashemian-sc5sTPMrVfk-unsplash.jpg");
+    background-size:600px 400px;
+    background-repeat: no-repeat;
+    background-position:center;
+    width: 100%;
+    height: 167px;
+    /* margin: 0; */
+    padding: 0;
+}
+
+.total {
+    border: 1px green solid;
+    height:50vh;
+}
+
+/* Typography */
+
+
+/* Button */
+button {
+    border-radius: 50%;
+}
+
+/* Added from JS */
+
+.main-item {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal */
+.hidden {
+    display: none;
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.payment-modal {
+    border: 2px black solid;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
