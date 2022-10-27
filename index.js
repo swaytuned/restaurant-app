@@ -1,16 +1,15 @@
-"use strict"
+"use strict";
 
-import { menuArray } from "./data.js"
+import { menuArray } from "./data.js";
 
 // console.log(menuArray)
 
 // pull menu from array
 const getMenu = () => {
+	let menuHtml = ``;
 
-    let menuHtml = ``
-    
-    menuArray.forEach( (food) => {
-        menuHtml += `
+	menuArray.forEach((food) => {
+		menuHtml += `
         <div class="main-menu">
             <div class="menu-item">
                 <p class="menu-emoji">${food.emoji} </p>
@@ -23,27 +22,22 @@ const getMenu = () => {
         <script>
         
         </script>
-    `
-    })
-    return menuHtml
-}
+    `;
+	});
+	return menuHtml;
+};
 // -------------------------------------
 // Add Item To Counter
 const addItem = (food) => {
+	food.id.addEventListener("click", () => {
+		console.log("click");
+	});
 
+	// adds items from array
+	// Total Fumction
+	const totalHtml = document.getElementById("total");
 
-    food.id.addEventListener("click", ()=>{
-        console.log("click")
-    
-
-})
-
-
-// adds items from array
-// Total Fumction
-const totalHtml = document.getElementById("total")
-
-totalHtml.innerHTML +=`
+	totalHtml.innerHTML += `
     <div class="order" id="order">
         <h2> Your Order </h2>
         <br>
@@ -58,30 +52,27 @@ totalHtml.innerHTML +=`
             <p class="total-cost" id="total-cost"> </p>
         </div>
     </div>
-`
-}
+`;
+};
 
 // -------------------------------
 // Checkout Function
 const checkout = () => {
-// once checkout is confirmed it pops up payment modal
-console.log(addItem)
-}
+	// once checkout is confirmed it pops up payment modal
+	console.log(addItem);
+};
 
 // --------------------------
 // payment Function
 const payment = () => {
-    // makes modal popup
-   const payment = document.getElementById("payment-modal")
+	// makes modal popup
+	const payment = document.getElementById("payment-modal");
 
-    payment.style.display = "inline"
-   
-   .addEventListener("submit", function(event){
-    event.preventDefault()
-    console.log("payment sent")
-   })
-
-}
+	payment.style.display = "inline".addEventListener("submit", function (event) {
+		event.preventDefault();
+		console.log("payment sent");
+	});
+};
 
 // todo list:
 // show array
@@ -93,12 +84,11 @@ const payment = () => {
 // -----------------------------------
 // call render
 const render = () => {
-    const menu = document.getElementById("menu")
-    menu.innerHTML = getMenu()
-console.log("stuff here")
-}
+	const menu = document.getElementById("menu");
+	menu.innerHTML = getMenu();
+	console.log("stuff here");
+};
 
-render()
+render();
 
-
-// comment just to test and update, Hi Silas. 
+// comment just to test and update, Hi Silas.
