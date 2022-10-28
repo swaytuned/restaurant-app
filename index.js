@@ -16,7 +16,7 @@ const getMenu = () => {
                 <h2>${food.name}</h2>
                 <p>${food.ingredients}</p>
                 <p>$${food.price}</p>
-                <button class="${food.id}">+</button>
+                <button class="${food.id}" id="add-button">+</button>
             </div>
         </div>
         <script>
@@ -24,18 +24,17 @@ const getMenu = () => {
         </script>
     `;
 	});
-	return menuHtml;
-};
-// -------------------------------------
-// Add Item To Counter
-const addItem = (food) => {
-	food.id.addEventListener("click", () => {
+
+    return menuHtml;
+
+
+    // temporary until I figure out how to connect the buttons
+    document.getElementById("add-button").addEventListener("click", () => {
+
 		console.log("click");
 	});
 
-	// adds items from array
-	// Total Fumction
-	const totalHtml = document.getElementById("total");
+    const totalHtml = document.getElementById("total");
 
 	totalHtml.innerHTML += `
     <div class="order" id="order">
@@ -54,6 +53,37 @@ const addItem = (food) => {
     </div>
 `;
 };
+
+	// return menuHtml;
+// };
+// -------------------------------------
+// Add Item To Counter (remove if above works)
+// const addItem = (food) => {
+// 	food.id.addEventListener("click", () => {
+// 		console.log("click");
+// 	});
+
+// 	// adds items from array
+// 	// Total Fumction
+// 	const totalHtml = document.getElementById("total");
+
+// 	totalHtml.innerHTML += `
+//     <div class="order" id="order">
+//         <h2> Your Order </h2>
+//         <br>
+//         <br>
+//         <div id="your-order">
+//             <h2 class="item-name" id="item-name"> </h2>
+//             <button class="item-remove" id="item-remove">remove </button>
+//             <h4 class="item-price" id="item-price"> </h4>
+//         </div>
+//         <div class="total-handle" id="total-handle">
+//             <h2 class="total-price" id="total-price">Total price: </h2>
+//             <p class="total-cost" id="total-cost"> </p>
+//         </div>
+//     </div>
+// `;
+// };
 
 // -------------------------------
 // Checkout Function
