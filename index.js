@@ -28,10 +28,13 @@ const getMenu = () => {
 
 	return menuHtml;
 
-	// temporary until I figure out how to connect the buttons
+	// Listens for clicks on button press. currently not working. 
 	document.addEventListener("click", (event) => {
-		console.log(event.target.dataset);
-        console.log("clicked");
+        if (event.target.dataset.add){
+            console.log(event.target.dataset.add);
+            console.log("clicked");
+        }
+		
 	});
 
 	const totalHtml = document.getElementById("total");
@@ -64,7 +67,8 @@ const checkout = () => {
 // --------------------------
 // payment Function
 const payment = () => {
-	// makes modal popup
+    // if payment button is clicked
+	// then make modal popup
 	const payment = document.getElementById("payment-modal");
 
 	payment.style.display = "inline".addEventListener("submit", function (event) {
