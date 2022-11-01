@@ -6,7 +6,7 @@ import { menuArray } from "./data.js";
 
 // pull menu from array
 const getMenu = () => {
-	let menuHtml = ``;
+	let menuHtml = "";
 
 	menuArray.forEach((food) => {
 		menuHtml += `
@@ -16,7 +16,7 @@ const getMenu = () => {
                 <h2>${food.name}</h2>
                 <p>${food.ingredients}</p>
                 <p>$${food.price}</p>
-                <button class="${food.id}" id="add-button">+</button>
+                <button class="add-button" id="add-button" data-add="${food.id}">+</button>
             </div>
         </div>
 
@@ -26,15 +26,15 @@ const getMenu = () => {
     `;
 	});
 
-    return menuHtml;
+	return menuHtml;
 
-    // temporary until I figure out how to connect the buttons
-    document.getElementById("add-button").addEventListener("click", (food) => {
-        
-		console.log("click");
+	// temporary until I figure out how to connect the buttons
+	document.addEventListener("click", (event) => {
+		console.log(event.target.dataset);
+        console.log("clicked");
 	});
 
-    const totalHtml = document.getElementById("total");
+	const totalHtml = document.getElementById("total");
 
 	totalHtml.innerHTML += `
         <div class="order" id="order">
@@ -53,7 +53,6 @@ const getMenu = () => {
         </div>
     `;
 };
-
 
 // -------------------------------
 // Checkout Function
@@ -75,8 +74,7 @@ const payment = () => {
 };
 
 // todo list:
-// show array
-// add in incremnetal counter
+
 // math stuff
 // create modal for payment details
 // hide modal and display thanks
