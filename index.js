@@ -27,19 +27,26 @@ const getMenu = () => {
 	});
 
 	return menuHtml;
+	
+};
 
-	// Listens for clicks on button press. currently not working. 
-	document.addEventListener("click", (event) => {
-        if (event.target.dataset.add){
-            console.log(event.target.dataset.add);
-            console.log("clicked");
-        }
-		
-	});
+// Listens for clicks on button press. currently not working. 
+document.addEventListener("click", (event) => {
+    if (event.target.dataset.add){
+        checkout()
+        console.log(event.target.dataset.add);
+        console.log("clicked");
+    }
+    
+});
 
-	const totalHtml = document.getElementById("total");
+// -------------------------------
+// Checkout Function
+const checkout = () => {
 
-	totalHtml.innerHTML += `
+    const totalHtml = document.getElementById("total");
+
+    totalHtml.innerHTML += `
         <div class="order" id="order">
             <h2> Your Order </h2>
             <br>
@@ -53,15 +60,12 @@ const getMenu = () => {
                 <h2 class="total-price" id="total-price">Total price: </h2>
                 <p class="total-cost" id="total-cost"> </p>
             </div>
+            <buttton>Pay Now</button>
         </div>
     `;
-};
 
-// -------------------------------
-// Checkout Function
-const checkout = () => {
 	// once checkout is confirmed it pops up payment modal
-	console.log(addItem);
+	console.log("items added");
 };
 
 // --------------------------
