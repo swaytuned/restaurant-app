@@ -27,26 +27,24 @@ const getMenu = () => {
 	});
 
 	return menuHtml;
-	
 };
 
-// Listens for clicks on button press. currently not working. 
+// Listens for clicks on button press. currently not working.
 document.addEventListener("click", (event) => {
-    if (event.target.dataset.add){
-        checkout()
-        console.log(event.target.dataset.add);
-        console.log("clicked");
-    }
-    
+	if (event.target.dataset.add) {
+		checkout();
+		console.log(event.target.dataset.add);
+		console.log("clicked");
+	}
 });
 
 // -------------------------------
 // Checkout Function
 const checkout = () => {
+	let totalHtml = "";
 
-    const totalHtml = document.getElementById("total");
-
-    totalHtml.innerHTML += `
+	menuArray.forEach((food) => {
+		totalHtml.innerHTML += `
         <div class="order" id="order">
             <h2> Your Order </h2>
             <br>
@@ -63,7 +61,7 @@ const checkout = () => {
             <buttton>Pay Now</button>
         </div>
     `;
-
+	});
 	// once checkout is confirmed it pops up payment modal
 	console.log("items added");
 };
@@ -71,8 +69,9 @@ const checkout = () => {
 // --------------------------
 // payment Function
 const payment = () => {
-    // if payment button is clicked
+	// if payment button is clicked
 	// then make modal popup
+    // change class to remove hidden 
 	const payment = document.getElementById("payment-modal");
 
 	payment.style.display = "inline".addEventListener("submit", function (event) {
@@ -91,7 +90,11 @@ const payment = () => {
 // call render
 const render = () => {
 	const menu = document.getElementById("menu");
+	const total = document.getElementById("total");
+
 	menu.innerHTML = getMenu();
+	total.innerHTML = checkout();
+
 	console.log("stuff here");
 };
 
