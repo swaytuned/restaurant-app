@@ -27,12 +27,26 @@ const getMenu = () => {
 	return menuHtml;
 };
 
+// Listens for clicks on button press. currently not working.
+document.addEventListener("click", (event) => {
+	if (event.target.dataset.add) {
+		checkout();
+		console.log(event.target.dataset.add);
+		console.log("clicked");
+	}
+});
+
+
 // -------------------------------
 // Checkout Function
 // incremental and addition operator should be used here.
 
 const checkout = () => {
 	let totalHtml = "";
+
+    for (let i=0; i < menuArray ;i++){
+
+    }    
 
 	menuArray.forEach((food) => {
 		totalHtml += `
@@ -58,14 +72,6 @@ const checkout = () => {
 	// once checkout is confirmed it pops up payment modal
 };
 
-// Listens for clicks on button press. currently not working.
-document.addEventListener("click", (event) => {
-	if (event.target.dataset.add) {
-		checkout();
-		console.log(event.target.dataset.add);
-		console.log("clicked");
-	}
-});
 
 // --------------------------
 // payment Function
