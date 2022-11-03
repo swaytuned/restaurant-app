@@ -14,29 +14,18 @@ const getMenu = () => {
             <div class="menu-item">
                 <p class="menu-emoji">${food.emoji} </p>
                 <h2>${food.name}</h2>
-                <p>${food.ingredients}</p>
+                <p class="ingredients">${food.ingredients}</p>
                 <p>$${food.price}</p>
-                <button class="add-button" id="add-button" data-add="${food.id}">+</button>
+                <div class="button">
+                    <button class="add-button" id="add-button" data-add="${food.id}">+</button>
+                </div>
             </div>
         </div>
-
-        <script>
-            document.getElementById("main-menu").style.flexDirection = "row"
-        </script>
     `;
 	});
 
 	return menuHtml;
 };
-
-// Listens for clicks on button press. currently not working.
-document.addEventListener("click", (event) => {
-	if (event.target.dataset.add) {
-		checkout;
-		console.log(event.target.dataset.add);
-		console.log("clicked");
-	}
-});
 
 // -------------------------------
 // Checkout Function
@@ -67,8 +56,16 @@ const checkout = () => {
 	});
     return totalHtml
 	// once checkout is confirmed it pops up payment modal
-	console.log(payment());
 };
+
+// Listens for clicks on button press. currently not working.
+document.addEventListener("click", (event) => {
+	if (event.target.dataset.add) {
+		checkout();
+		console.log(event.target.dataset.add);
+		console.log("clicked");
+	}
+});
 
 // --------------------------
 // payment Function

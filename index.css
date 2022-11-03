@@ -35,13 +35,35 @@ header {
 /* Button */
 button {
     border-radius: 50%;
+    border-color: #d2d2d2;
 }
 
 /* Added from JS */
 
-.main-item {
+.main-menu {
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button {
+    display: inline-block;
+}
+
+.menu-emoji {
+    line-height: 98px;
+    opacity: .72;
+
+}
+
+.ingredients{
+    color: #d2d2d2;
 }
 
 /* Modal */
