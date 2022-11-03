@@ -32,7 +32,7 @@ const getMenu = () => {
 // Listens for clicks on button press. currently not working.
 document.addEventListener("click", (event) => {
 	if (event.target.dataset.add) {
-		checkout();
+		checkout;
 		console.log(event.target.dataset.add);
 		console.log("clicked");
 	}
@@ -40,38 +40,44 @@ document.addEventListener("click", (event) => {
 
 // -------------------------------
 // Checkout Function
+// incremental and addition operator should be used here.
+
 const checkout = () => {
 	let totalHtml = "";
 
 	menuArray.forEach((food) => {
-		totalHtml.innerHTML += `
+		totalHtml += `
         <div class="order" id="order">
             <h2> Your Order </h2>
             <br>
             <br>
             <div id="your-order">
-                <h2 class="item-name" id="item-name"> </h2>
+                <h2 class="item-name" id="item-name">${food.name} </h2>
                 <button class="item-remove" id="item-remove">remove </button>
                 <h4 class="item-price" id="item-price"> </h4>
             </div>
             <div class="total-handle" id="total-handle">
                 <h2 class="total-price" id="total-price">Total price: </h2>
                 <p class="total-cost" id="total-cost"> </p>
+                <buttton class="pay-button" id="pay-button">Pay Now </button>
             </div>
-            <buttton>Pay Now</button>
+            
         </div>
     `;
 	});
+    return totalHtml
 	// once checkout is confirmed it pops up payment modal
-	console.log("items added");
+	console.log(payment());
 };
 
 // --------------------------
 // payment Function
 const payment = () => {
+    const total = document.getElementById("total");
+    total.innerHTML = checkout();
 	// if payment button is clicked
 	// then make modal popup
-    // change class to remove hidden 
+	// change class to remove hidden
 	const payment = document.getElementById("payment-modal");
 
 	payment.style.display = "inline".addEventListener("submit", function (event) {
@@ -90,10 +96,10 @@ const payment = () => {
 // call render
 const render = () => {
 	const menu = document.getElementById("menu");
-	const total = document.getElementById("total");
+	
 
 	menu.innerHTML = getMenu();
-	total.innerHTML = checkout();
+	
 
 	console.log("stuff here");
 };
