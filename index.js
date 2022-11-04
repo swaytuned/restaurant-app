@@ -36,18 +36,39 @@ document.addEventListener("click", (event) => {
 	}
 });
 
-
 // -------------------------------
 // Checkout Function
 // incremental and addition operator should be used here.
 
 const checkout = () => {
 	let totalHtml = "";
+	const totalPrice = document.getElementById("total-cost");
+	const itemPrice = document.getElementById("item-price");
+	const totalCount = document.getElementById("total-count");
+    let itemCount = document.getElementById("item-count");
+    
 
-    for (let i=0; i < menuArray ;i++){
+	let count = 0;
+    let price = 0
 
-    }    
+    const handleIncrement = () => {
+        count++;
+        totalCount.innerHTML = count;
 
+        price++;
+        totalPrice.innerHTML =  price;
+    }
+
+    const handleDecrement = () => {
+        count--;
+        totalCount.innerHTML = count;
+
+        price--;
+        totalPrice.innerHTML =  price;
+    }
+
+
+// -------------------------------------------------------------
 	menuArray.forEach((food) => {
 		totalHtml += `
         <div class="order" id="order">
@@ -56,28 +77,29 @@ const checkout = () => {
             <br>
             <div id="your-order">
                 <h2 class="item-name" id="item-name">${food.name} </h2>
-                <button class="item-remove" id="item-remove">remove </button>
-                <h4 class="item-price" id="item-price"> </h4>
+                <button class="item-remove" id="item-remove"> Remove </button>
+                <h4 class="item-price" id="item-price">${itemPrice} </h4>
+                <h2 class="item-count" id="item-count">${itemCount} </h2>
             </div>
             <div class="total-handle" id="total-handle">
-                <h2 class="total-price" id="total-price">Total price: </h2>
-                <p class="total-cost" id="total-cost"> </p>
-                <buttton class="pay-button" id="pay-button">Pay Now </button>
+                <h2 class="total-price">Total price: </h2>
+                <p class="total-cost" id="total-cost">${totalPrice} </p>
+                <p class="total-item" id="total-item"> ${totalCount} </p>
+                <buttton class="pay-button" id="pay-button"> Complete Order </button>
             </div>
             
         </div>
     `;
 	});
-    return totalHtml
+	return totalHtml;
 	// once checkout is confirmed it pops up payment modal
 };
-
 
 // --------------------------
 // payment Function
 const payment = () => {
-    const total = document.getElementById("total");
-    total.innerHTML = checkout();
+	const total = document.getElementById("total");
+	total.innerHTML = checkout();
 	// if payment button is clicked
 	// then make modal popup
 	// change class to remove hidden
@@ -99,10 +121,8 @@ const payment = () => {
 // call render
 const render = () => {
 	const menu = document.getElementById("menu");
-	
 
 	menu.innerHTML = getMenu();
-	
 
 	console.log("stuff here");
 };
