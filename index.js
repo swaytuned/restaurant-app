@@ -35,6 +35,7 @@ document.addEventListener("click", (event) => {
 		console.log("clicked");
 	}
 });
+// does increment belong in a speparate function
 
 // -------------------------------
 // Checkout Function
@@ -45,30 +46,28 @@ const checkout = () => {
 	const totalPrice = document.getElementById("total-cost");
 	const itemPrice = document.getElementById("item-price");
 	const totalCount = document.getElementById("total-count");
-    let itemCount = document.getElementById("item-count");
-    
+	let itemCount = document.getElementById("item-count");
 
 	let count = 0;
-    let price = 0
+	let price = 0;
 
-    const handleIncrement = () => {
-        count++;
-        totalCount.innerHTML = count;
+	const handleIncrement = () => {
+		count++;
+		totalCount.innerHTML = count;
 
-        price++;
-        totalPrice.innerHTML =  price;
-    }
+		price++;
+		totalPrice.innerHTML = price;
+	};
 
-    const handleDecrement = () => {
-        count--;
-        totalCount.innerHTML = count;
+	const handleDecrement = () => {
+		count--;
+		totalCount.innerHTML = count;
 
-        price--;
-        totalPrice.innerHTML =  price;
-    }
+		price--;
+		totalPrice.innerHTML = price;
+	};
 
-
-// -------------------------------------------------------------
+	// -------------------------------------------------------------
 	menuArray.forEach((food) => {
 		totalHtml += `
         <div class="order" id="order">
@@ -93,6 +92,9 @@ const checkout = () => {
 	});
 	return totalHtml;
 	// once checkout is confirmed it pops up payment modal
+
+	// if complete order button clicked
+	// then opens/unhide modal in payemnt function
 };
 
 // --------------------------
@@ -123,8 +125,6 @@ const render = () => {
 	const menu = document.getElementById("menu");
 
 	menu.innerHTML = getMenu();
-
-	console.log("stuff here");
 };
 
 render();
