@@ -28,14 +28,15 @@ const getMenu = () => {
 };
 
 // Listens for clicks on button press. currently not working.
-document.addEventListener("click", (event) => {
+const test = document.addEventListener("click", (event) => {
+	event.preventDefault;
 	if (event.target.dataset.add) {
 		checkout();
 		console.log(event.target.dataset.add);
 		console.log("clicked");
 	}
 });
-// does increment belong in a speparate function
+// does increment belong in a speparate function?
 
 // -------------------------------
 // Checkout Function
@@ -47,24 +48,40 @@ const checkout = () => {
 	const itemPrice = document.getElementById("item-price");
 	const totalCount = document.getElementById("total-count");
 	let itemCount = document.getElementById("item-count");
+	const itemRemove = document.getElementById("item-remove");
 
 	let count = 0;
 	let price = 0;
 
 	const handleIncrement = () => {
-		count++;
-		totalCount.innerHTML = count;
-
-		price++;
-		totalPrice.innerHTML = price;
+		if (test < count) {
+			count++;
+			totalCount.innerHTML = totalHtml;
+		}
+		if (test < price) {
+			price++;
+			totalPrice.innerHTML = price;
+		}
 	};
+	console.log(handleIncrement());
 
 	const handleDecrement = () => {
-		count--;
-		totalCount.innerHTML = count;
+		itemRemove.addEventListener("click", (event) => {
+			event.preventDefault;
+			if (event.target.dataset.add) {
+				console.log(event.target.dataset.add);
+				console.log("removed");
+			}
+		});
 
-		price--;
-		totalPrice.innerHTML = price;
+		if (itemRemove) {
+			count--;
+			totalCount.innerHTML = count;
+		}
+		if (itemRemove) {
+			price--;
+			totalPrice.innerHTML = price;
+		}
 	};
 
 	// -------------------------------------------------------------
@@ -75,15 +92,14 @@ const checkout = () => {
             <br>
             <br>
             <div id="your-order">
-                <h2 class="item-name" id="item-name">${food.name} </h2>
+                <h2 class="item-name" id="item-name"> ${food.name} </h2>
                 <button class="item-remove" id="item-remove"> Remove </button>
-                <h4 class="item-price" id="item-price">${itemPrice} </h4>
-                <h2 class="item-count" id="item-count">${itemCount} </h2>
+                <h4 class="item-price" id="item-price">$ ${food.price} </h4>
+                <h2 class="item-count" id="item-count">${count} </h2>
             </div>
             <div class="total-handle" id="total-handle">
                 <h2 class="total-price">Total price: </h2>
-                <p class="total-cost" id="total-cost">${totalPrice} </p>
-                <p class="total-item" id="total-item"> ${totalCount} </p>
+                <p class="total-cost" id="total-cost">$ ${price} </p>
                 <buttton class="pay-button" id="pay-button"> Complete Order </button>
             </div>
             
@@ -125,6 +141,9 @@ const render = () => {
 	const menu = document.getElementById("menu");
 
 	menu.innerHTML = getMenu();
+
+	const total = document.getElementById("total");
+	total.innerHTML = checkout();
 };
 
 render();
