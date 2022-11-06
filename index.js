@@ -42,25 +42,18 @@ const test = document.addEventListener("click", (event) => {
 // Checkout Function
 // incremental and addition operator should be used here.
 
-const checkout = () => {
-	let totalHtml = "";
-	const totalPrice = document.getElementById("total-cost");
-	const itemPrice = document.getElementById("item-price");
-	const totalCount = document.getElementById("total-count");
-	let itemCount = document.getElementById("item-count");
-	const itemRemove = document.getElementById("item-remove");
-
-	let count = 0;
-	let price = 0;
-
+const foodOrder = () => {
+	
 	const handleIncrement = () => {
 		if (test < count) {
 			count++;
 			totalCount.innerHTML = totalHtml;
+			total
 		}
 		if (test < price) {
 			price++;
 			totalPrice.innerHTML = price;
+			total
 		}
 	};
 	console.log(handleIncrement());
@@ -77,7 +70,7 @@ const checkout = () => {
 		if (itemRemove) {
 			count--;
 			totalCount.innerHTML = count;
-			 return total
+			
 		}
 		if (itemRemove) {
 			price--;
@@ -85,6 +78,26 @@ const checkout = () => {
 			total
 		}
 	};
+
+	
+	// once checkout is confirmed it pops up payment modal
+
+	// if complete order button clicked
+	// then opens/unhide modal in payemnt function
+
+	
+};
+
+const checkout = () => {
+	let totalHtml = "";
+	const totalPrice = document.getElementById("total-cost");
+	const itemPrice = document.getElementById("item-price");
+	const totalCount = document.getElementById("total-count");
+	let itemCount = document.getElementById("item-count");
+	const itemRemove = document.getElementById("item-remove");
+
+	let count = 0;
+	let price = 0;
 
 	// -------------------------------------------------------------
 	menuArray.forEach((food) => {
@@ -109,19 +122,14 @@ const checkout = () => {
     `;
 	});
 	return totalHtml;
-	// once checkout is confirmed it pops up payment modal
-
-	// if complete order button clicked
-	// then opens/unhide modal in payemnt function
-
-	const total = document.getElementById("total");
-	total.innerHTML = checkout();
-};
+	foodOrder()
+	console.log("trigger")
+}
 
 // --------------------------
 // payment Function
 const payment = () => {
-	const total = document.getElementById("total");
+	const orderPayment = document.getElementById("payment");
 	total.innerHTML = checkout();
 	// if payment button is clicked
 	// then make modal popup
@@ -132,6 +140,8 @@ const payment = () => {
 		event.preventDefault();
 		console.log("payment sent");
 	});
+	
+
 };
 
 // todo list:
@@ -140,14 +150,17 @@ const payment = () => {
 // create modal for payment details
 // hide modal and display thanks
 
+// const Order = () => {
+// 	const total = document.getElementById("total");
+// 	total.innerHTML = checkout();
+// }
+
 // -----------------------------------
 // call render
 const render = () => {
 	const menu = document.getElementById("menu");
 
-	menu.innerHTML = getMenu();
-
-	
+	menu.innerHTML = getMenu();	
 };
 
 render();
