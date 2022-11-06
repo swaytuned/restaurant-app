@@ -77,10 +77,12 @@ const checkout = () => {
 		if (itemRemove) {
 			count--;
 			totalCount.innerHTML = count;
+			 return total
 		}
 		if (itemRemove) {
 			price--;
 			totalPrice.innerHTML = price;
+			total
 		}
 	};
 
@@ -111,6 +113,9 @@ const checkout = () => {
 
 	// if complete order button clicked
 	// then opens/unhide modal in payemnt function
+
+	const total = document.getElementById("total");
+	total.innerHTML = checkout();
 };
 
 // --------------------------
@@ -142,8 +147,7 @@ const render = () => {
 
 	menu.innerHTML = getMenu();
 
-	const total = document.getElementById("total");
-	total.innerHTML = checkout();
+	
 };
 
 render();
