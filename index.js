@@ -28,7 +28,7 @@ const getMenu = () => {
 };
 
 // Listens for clicks on button press. currently not working.
-const test = document.addEventListener("click", (event) => {
+const orderClick = document.addEventListener("click", (event) => {
 	event.preventDefault;
 	if (event.target.dataset.add) {
 		checkout();
@@ -43,17 +43,20 @@ const test = document.addEventListener("click", (event) => {
 // incremental and addition operator should be used here.
 
 const foodOrder = () => {
-	
 	const handleIncrement = () => {
-		if (test < count) {
+
+		let count = 0;
+		let price = 0;
+		
+		if (orderClick) {
 			count++;
 			totalCount.innerHTML = totalHtml;
-			total
+			total;
 		}
-		if (test < price) {
+		if (orderClick) {
 			price++;
 			totalPrice.innerHTML = price;
-			total
+			total;
 		}
 	};
 	console.log(handleIncrement());
@@ -70,22 +73,18 @@ const foodOrder = () => {
 		if (itemRemove) {
 			count--;
 			totalCount.innerHTML = count;
-			
 		}
 		if (itemRemove) {
 			price--;
 			totalPrice.innerHTML = price;
-			total
+			total;
 		}
 	};
 
-	
 	// once checkout is confirmed it pops up payment modal
 
 	// if complete order button clicked
 	// then opens/unhide modal in payemnt function
-
-	
 };
 
 const checkout = () => {
@@ -96,8 +95,7 @@ const checkout = () => {
 	let itemCount = document.getElementById("item-count");
 	const itemRemove = document.getElementById("item-remove");
 
-	let count = 0;
-	let price = 0;
+	
 
 	// -------------------------------------------------------------
 	menuArray.forEach((food) => {
@@ -122,9 +120,9 @@ const checkout = () => {
     `;
 	});
 	return totalHtml;
-	foodOrder()
-	console.log("trigger")
-}
+	foodOrder();
+	console.log("trigger");
+};
 
 // --------------------------
 // payment Function
@@ -140,8 +138,6 @@ const payment = () => {
 		event.preventDefault();
 		console.log("payment sent");
 	});
-	
-
 };
 
 // todo list:
@@ -160,7 +156,7 @@ const payment = () => {
 const render = () => {
 	const menu = document.getElementById("menu");
 
-	menu.innerHTML = getMenu();	
+	menu.innerHTML = getMenu();
 };
 
 render();
