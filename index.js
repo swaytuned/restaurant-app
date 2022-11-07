@@ -95,7 +95,8 @@ const checkout = () => {
 	let itemCount = document.getElementById("item-count");
 	const itemRemove = document.getElementById("item-remove");
 
-	
+	let count = 0;
+	let price = 0;
 
 	// -------------------------------------------------------------
 	menuArray.forEach((food) => {
