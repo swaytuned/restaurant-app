@@ -2,7 +2,6 @@
 
 import { menuArray } from "./data.js";
 
-// console.log(menuArray)
 
 // pull menu from array
 const getMenu = () => {
@@ -31,41 +30,38 @@ const getMenu = () => {
 const orderClick = document.addEventListener("click", (event) => {
 	event.preventDefault;
 	if (event.target.dataset.add) {
-		checkout();
-		console.log(event.target.dataset.add);
+		handleIncrement(event.target.dataset.add)
 		console.log("clicked");
 	}
 });
+
+const handleIncrement = (id) => {
+	console.log(id)
+	console.log("trigger");
+};
 // does increment belong in a speparate function?
 
 // -------------------------------
 // Checkout Function
 // incremental and addition operator should be used here.
 
+
 const foodOrder = () => {
-	const handleIncrement = () => {
 
-		let count = 0;
-		let price = 0;
-		
-		if (orderClick) {
-			count++;
-			totalCount.innerHTML = totalHtml;
-			total;
-		}
-		if (orderClick) {
-			price++;
-			totalPrice.innerHTML = price;
-			total;
-		}
-	};
-	console.log(handleIncrement());
+	const totalCost = document.getElementById("total-cost");
+	const itemPrice = document.getElementById("item-price");
+	const totalCount = document.getElementById("total-count");
+	let itemCount = document.getElementById("item-count");
+	const itemRemove = document.getElementById("item-remove");
 
-	const handleDecrement = () => {
+	
+
+	const handleDecrement = (event) => {
+		console.log(event.target.dataset.remove)
 		itemRemove.addEventListener("click", (event) => {
 			event.preventDefault;
 			if (event.target.dataset.add) {
-				console.log(event.target.dataset.add);
+				console.log(event.target.dataset.remove);
 				console.log("removed");
 			}
 		});
@@ -85,15 +81,12 @@ const foodOrder = () => {
 
 	// if complete order button clicked
 	// then opens/unhide modal in payemnt function
+	checkout()
 };
 
 const checkout = () => {
 	let totalHtml = "";
-	const totalPrice = document.getElementById("total-cost");
-	const itemPrice = document.getElementById("item-price");
-	const totalCount = document.getElementById("total-count");
-	let itemCount = document.getElementById("item-count");
-	const itemRemove = document.getElementById("item-remove");
+	
 
 	let count = 0;
 	let price = 0;
@@ -121,7 +114,6 @@ const checkout = () => {
     `;
 	});
 	return totalHtml;
-	foodOrder();
 	console.log("trigger");
 };
 
